@@ -1,0 +1,91 @@
+@media screen and (max-width: 1920px){
+  #title{
+    font-size: 80px;
+  }
+  #Msg{
+    width: 970px;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  #title{
+    font-size: 6vw;
+  }
+  #Msg{
+    width: 58vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #title{
+    font-size: 7vw;
+  }
+  #Msg{
+    width: 60vw;
+    height: 15vw;
+  }
+}
+
+#title{
+  color: white;
+  margin-top: 0px;
+}
+
+#Msg{
+  transition: ease-in 0.3s;
+  font-size: 22px;
+  resize: none;
+}
+
+#Msg:focus{
+  border-color: red;
+}
+
+textarea{
+  border-radius: 10px;
+  border-width: 5px;
+  border-color: black;
+  border-style: solid;
+  background-color: beige;
+  box-shadow: -5px 5px 15px 0 black;
+}
+
+button{
+  box-shadow: -5px 5px 15px 0 black;
+  border-radius: 10px;
+  border-color: black;
+}
+
+#Snd{
+  transition: ease-in 0.3s;
+  background-color: rgb(67, 176, 67);
+  font-size: 30px;
+  height: 60px;
+  width: 100px;
+}
+
+#Snd:hover{
+  background-color: green;
+}
+
+#step1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#ytForm{
+  gap: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(to right, rgb(35, 56, 106),rgb(19, 24, 54))
+}

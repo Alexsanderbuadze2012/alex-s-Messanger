@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Message Send</title>
+</head>
+<body>
+    <h1 id="title">Messaging - მესიჯინგი</h1>
+    <div id="step1">
+        <form method="post" id="ytForm" onsubmit="send(event)">
+            <textarea id="Msg" placeholder="Type message here - Введите сообщение здесь"></textarea>
+            <button id="Snd" type="submit">-></button>
+        </form>
+    </div>
+    <ul id="listView">
+
+    </ul>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="logic.js"></script>
+</body>
+</html>
