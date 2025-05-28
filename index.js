@@ -10,7 +10,7 @@ const server = https.createServer({
   minVersion: "TLSv1.2"
 }, app);
 const io = new Server(server);
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 let messages = [];
 const messagesFile = path.join(__dirname, "messages.json");
@@ -41,5 +41,5 @@ io.on("connection", (socket) =>{
 });
 
 server.listen(PORT, () =>{
-    console.log("Server listening on port:" + PORT);
+    console.log("Server listening on port: " + PORT);
 });
