@@ -2,7 +2,7 @@
   #title{
     font-size: 80px;
   }
-  #Msg{
+  #msgBox{
     width: 970px;
   }
 }
@@ -11,7 +11,7 @@
   #title{
     font-size: 6vw;
   }
-  #Msg{
+  #msgBox{
     width: 58vw;
   }
 }
@@ -20,7 +20,7 @@
   #title{
     font-size: 7vw;
   }
-  #Msg{
+  #msgBox{
     width: 60vw;
     height: 15vw;
   }
@@ -31,13 +31,13 @@
   margin-top: 0px;
 }
 
-#Msg{
+#msgBox{
   transition: ease-in 0.3s;
   font-size: 22px;
   resize: none;
 }
 
-#Msg:focus{
+#msg:focus{
   border-color: red;
 }
 
@@ -56,7 +56,7 @@ button{
   border-color: black;
 }
 
-#Snd{
+#sndBtn{
   transition: ease-in 0.3s;
   background-color: rgb(67, 176, 67);
   font-size: 30px;
@@ -64,7 +64,7 @@ button{
   width: 100px;
 }
 
-#Snd:hover{
+#sndBtn:hover{
   background-color: green;
 }
 
@@ -88,4 +88,9 @@ body{
   align-items: center;
   flex-direction: column;
   background: linear-gradient(to right, rgb(35, 56, 106),rgb(19, 24, 54))
+}
+
+#listView li{
+  font-size: 40px;
+  color: white;
 }

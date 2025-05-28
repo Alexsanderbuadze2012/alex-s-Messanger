@@ -1,37 +1,31 @@
-window.onload = async function() {
-  const listView = document.getElementById("listView");
+const listView = document.getElementById("listView");
+const msgBox = document.getElementById("msgBox");
+const socket = io();
 
-  const res = await fetch("/messages"); // Fetch all saved messages
-  const savedMessages = await res.json();
+window.onload = async function(){
+  socket.on("load messages", (savedMessages) =>{
+    listView.innerText = "";
+    savedMessages.forEach(msg => {
+        const li = document.createElement("li");
+        li.textContent = msg;
+        listView.appendChild(li);
+    });
+  });
 
-  savedMessages.forEach(msg => {
+  socket.on("message added", (msg) =>{
     const li = document.createElement("li");
     li.textContent = msg;
-    li.style.fontSize = "40px";
-    li.style.color = "white";
     listView.appendChild(li);
   });
 };
 
 async function send(e){
-    e.preventDefault();
-    const msgBox = document.getElementById("Msg").value;
-    const listView = document.getElementById("listView");
-    const res = await fetch("/check",{
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({message : msgBox})
-    });
-
-    const message = await res.text();
-
-  const li = document.createElement("li");
-  li.textContent = message;
-  li.style.fontSize = "40px";
-  li.style.color = "white";
-
-  // ✅ Append to listView
-  listView.appendChild(li);
+  e.preventDefault();
+  const msg = msgBox.value.trim();
+  if(msg === ""){
+    alert("Empty Message");
+    return;
+  }
+  socket.emit("new message", msg);
+  msgBox.value = "";
 }

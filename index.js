@@ -1,13 +1,22 @@
 const express = require("express");
 const path = require("path");
-const http = require("http");
+const https = require("https");
 const {Server} = require("socket.io");
+const fs = require("fs-extra");
 const app = express();
-const server = http.createServer(app);
+const server = https.createServer({
+  key: fs.readFileSync("./localhost-key.pem"),
+  cert: fs.readFileSync("./localhost.pem"),
+  minVersion: "TLSv1.2"
+}, app);
 const io = new Server(server);
 const PORT = 3000;
 
-const messages = [];
+let messages = [];
+const messagesFile = path.join(__dirname, "messages.json");
+if (fs.existsSync(messagesFile)) {
+  messages = fs.readJsonSync(messagesFile);
+}
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
@@ -21,6 +30,7 @@ io.on("connection", (socket) =>{
     socket.on("new message", (msg) => {
         if (msg && msg.trim() !== "") {
             messages.push(msg);
+            fs.writeJsonSync(messagesFile, messages);
             io.emit("message added", msg); // Send to all clients
         }
     });

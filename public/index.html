@@ -9,14 +9,12 @@
 <body>
     <h1 id="title">Messaging - მესიჯინგი</h1>
     <div id="step1">
-        <form method="post" id="ytForm" onsubmit="send(event)">
-            <textarea id="Msg" placeholder="Type message here - Введите сообщение здесь"></textarea>
-            <button id="Snd" type="submit">-></button>
+        <form id="ytForm" onsubmit="send(event)">
+            <textarea id="msgBox" placeholder="Type message here - Введите сообщение здесь"></textarea>
+            <button id="sndBtn" type="submit">-></button>
         </form>
     </div>
-    <ul id="listView">
-
-    </ul>
+    <ul id="listView"></ul>
     <script src="/socket.io/socket.io.js"></script>
     <script src="logic.js"></script>
 </body>
